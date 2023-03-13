@@ -1,0 +1,38 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Assests\bomb.png" />
+    <None Remove="Assests\check.png" />
+    <None Remove="Assests\empty.png" />
+    <None Remove="Assests\flag.png" />
+    <None Remove="Assests\Fonts\Seven_Segment.ttf" />
+    <None Remove="Assests\Images\empty.png" />
+    <None Remove="Assests\Images\flag.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Assests\Fonts\Seven_Segment.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Assests\Images\bomb.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assests\Images\check.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assests\Images\empty.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assests\Images\flag.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+</Project>

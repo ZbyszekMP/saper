@@ -1,0 +1,89 @@
+﻿<Application x:Class="saper.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:saper"
+             StartupUri="Main/MainWindow.xaml">
+    
+    <Application.Resources>
+        <FontFamily x:Key="Seven_Segment">pack://application:,,,/Assests/Fonts/Seven_Segment.ttf</FontFamily>
+        <Style x:Key="sss" TargetType="Label">
+            <Setter Property="FontFamily" Value="pack://application:,,,/Assests/Fonts/#Seven Segment"/>
+            
+            
+        </Style>
+        <Style x:Key="Img1" TargetType="{x:Type Image}">
+
+            <Setter Property="Source" Value="Assests/Images/empty.png"/>
+
+        </Style>
+        <Style x:Key="Img2" TargetType="{x:Type Image}">
+
+            <Setter Property="Source" Value="Assests/Images/bomb.png"/>
+
+        </Style>
+        <Style x:Key="Img3" TargetType="{x:Type Image}">
+
+            <Setter Property="Source" Value="Assests/Images/flag.png"/>
+
+        </Style>
+        <Style x:Key="LoseLabel" TargetType="{x:Type Label}">
+
+            <Setter Property="FontSize" Value="70"/>
+            <Setter Property="Foreground" Value="Red"/>
+            <Setter Property="Background" Value="White"/>
+           
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="Content" Value="Przegrana"/>
+            <Setter Property="Grid.Column" Value="0"/>
+            <Setter Property="Grid.Row" Value="2"/>
+            <Setter Property="Grid.ColumnSpan" Value="3"/>
+            
+        </Style>
+        
+        <Style x:Key="WinLabel" TargetType="{x:Type Label}">
+
+            <Setter Property="FontSize" Value="70"/>
+            <Setter Property="Foreground" Value="Green"/>
+            <Setter Property="Background" Value="LightGray"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="Content" Value="Wygrana!!"/>
+            <Setter Property="Grid.Column" Value="0"/>
+            <Setter Property="Grid.Row" Value="2"/>
+            <Setter Property="Grid.ColumnSpan" Value="3"/>
+        </Style>
+        <Style x:Key="MyBorder" TargetType="Border">
+            <Setter Property="BorderBrush" Value="White" />
+            <Setter Property="BorderThickness" Value="2" />
+            <Setter Property="CornerRadius" Value="30" />
+            <Setter Property="Grid.Column" Value="0"/>
+            <Setter Property="Grid.Row" Value="2"/>
+            <Setter Property="Grid.ColumnSpan" Value="3"/>
+            
+        </Style>
+
+
+        <Style x:Key="But1" TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="#93FF33"/>
+            <Setter Property="FontSize" Value="25"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Background="{TemplateBinding Background}" BorderBrush="Black" BorderThickness="2">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="LightSlateGray"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+
+    </Application.Resources>
+</Application>
