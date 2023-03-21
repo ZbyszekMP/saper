@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:saper"
         mc:Ignorable="d"
-        Title="MainWindow" MaxHeight="800" MinHeight="800" MinWidth="650" Height="800" MaxWidth="650" Width="650">
-    <Grid x:Name="Kontener" VerticalAlignment="Center" HorizontalAlignment="Center">
+        Title="MainWindow" MaxHeight="800" MinHeight="800" MinWidth="650" Height="800" MaxWidth="650" Width="650" Background="#333333">
+    <Grid x:Name="Kontener" VerticalAlignment="Center" HorizontalAlignment="Center" Background="Black">
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>
             <RowDefinition Height="0.1*"/>
@@ -22,7 +22,7 @@
         </Grid.ColumnDefinitions>
         <Label x:Name="FL1" FontFamily="pack://application:,,,/Assests/Fonts/#Seven Segment" Background="Black" Foreground="Red" Grid.Column="0" Grid.Row="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="60">0</Label>
         <Label x:Name="TimeLabel" FontFamily="pack://application:,,,/Assests/Fonts/#Seven Segment" Background="Black" Foreground="Red" Grid.Column="2" Grid.Row="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="60">0</Label>
-        <Button x:Name="Reset"  Click="Reset_Click" Content="Reset" Grid.Column="1" Grid.Row="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="40" FontWeight="Heavy"></Button>
+        <Button x:Name="Reset"  Click="Reset_Click" Content="Reset" Grid.Column="1" Grid.Row="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="40" FontWeight="Heavy" Background="#333333"></Button>
         <Grid x:Name="Board" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" Height="600" Width="600">
             
             

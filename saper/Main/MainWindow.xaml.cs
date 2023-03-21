@@ -48,9 +48,10 @@ namespace saper
         public MainWindow()
 
         {
-           
+            InitializeComponent();
+
             //aaa.Content = "ddd";
-            
+
             styl1 = this.FindResource("But1") as Style;
             emptyStyle = this.FindResource("Img1") as Style;
             bombStyle = this.FindResource("Img2") as Style;
@@ -62,7 +63,7 @@ namespace saper
 
             RenderBoard(BoardSize);
             
-            InitializeComponent();
+            
 
 
 
