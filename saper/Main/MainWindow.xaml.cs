@@ -32,13 +32,13 @@ namespace saper
         public int BoardSize = 7;
         public int Bomb = 5;
         public int Flags1 = 0;
-        public int[,] ABoard;
-        public Button[,] Buttons;
+        public int[,] ABoard=new int[0,0];
+        public Button[,] Buttons=new Button[0, 0]; 
         public Style emptyStyle;
         public Style bombStyle;
         public Style flagStyle;
         public Style styl1;
-        
+       
         public int licznik = 1;
         public int czas = 0;
         public int odkryte = 0;
@@ -49,24 +49,17 @@ namespace saper
 
         {
             InitializeComponent();
-
-            //aaa.Content = "ddd";
-
-            styl1 = this.FindResource("But1") as Style;
-            emptyStyle = this.FindResource("Img1") as Style;
-            bombStyle = this.FindResource("Img2") as Style;
-            flagStyle = this.FindResource("Img3") as Style;
-        
+            styl1 = (Style)FindResource("But1");
+            emptyStyle = (Style)FindResource("Img1");
+            bombStyle = (Style)FindResource("Img2");
+            flagStyle = (Style)FindResource("Img3");       
             Timer1 = new System.Windows.Threading.DispatcherTimer();
             Timer1.Start();
             Timer1.Interval = new TimeSpan(0, 0, 1);
 
             RenderBoard(BoardSize);
             
-            
-
-
-
+          
         }
 
         public Vector2 CorName(string name)
@@ -102,18 +95,12 @@ namespace saper
         }
         public void click(object sender, RoutedEventArgs e)
         {
-            Button b = e.Source as Button;
-            
+            Button b = (Button)e.Source;
             String name = b.Name;
             Vector2 cor = CorName(name);
             Timer1.Tick -= Licznik;
             Timer1.Tick += Licznik;
             Checking((int)cor.X, (int)cor.Y);
-           
-           
-            
-
-
             WinCheck();
                 
         }
@@ -124,7 +111,7 @@ namespace saper
         }
         public void ClickRight(object sender, MouseButtonEventArgs e)
         {
-            Button b = sender as Button;
+            Button b = (Button)sender;
             Image img = new Image();
 
             String name = b.Name;
@@ -135,13 +122,16 @@ namespace saper
             {
                 ABoard[x, y] += 100;
                 img.Style = flagStyle;
+                
                 Flags1--;
+                FlagLabel.Content=Flags1.ToString();    
                 b.Click -= new RoutedEventHandler(click);
             }
             else
             {
                 ABoard[x, y] -= 100;
                 Flags1++;
+                FlagLabel.Content=Flags1.ToString();
                 img.Style = emptyStyle;
                 b.Click += new RoutedEventHandler(click);
             }
@@ -160,7 +150,7 @@ namespace saper
             Buttons = new Button[Size, Size];
             ABoard = new int[Size, Size];
             Flags1 = bomb;
-           // FlagsLabel1.Content = Flags1.ToString();
+            FlagLabel.Content = Flags1.ToString();
             //Generowanie planszy
             for (int i = 0; i < BoardSize; i++)
             {
@@ -188,7 +178,7 @@ namespace saper
                     Grid.SetRow(pole, i);
                     pole.Style = styl1;
                     Board.Children.Add(pole);
-                    Buttons[i, j] = Board.Children[Board.Children.Count - 1] as Button;
+                    Buttons[i, j] = (Button)Board.Children[Board.Children.Count - 1];
 
                 }
 
@@ -315,7 +305,8 @@ namespace saper
 
         private void MEnter(object sender, MouseEventArgs e)
         {
-            Button b = sender as Button; if (b != null)
+            Button b = (Button)sender; 
+            if (b != null)
             {
                 Vector2 cor = CorName(b.Name);
                 //Cords.Content = (cor.X+1).ToString() + "|" + (cor.Y+1).ToString();

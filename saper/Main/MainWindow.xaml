@@ -6,6 +6,31 @@
         xmlns:local="clr-namespace:saper"
         mc:Ignorable="d"
         Title="MainWindow" MaxHeight="800" MinHeight="800" MinWidth="650" Height="800" MaxWidth="650" Width="650" Background="#333333">
+    <Window.Resources>
+        <Style x:Key="StatsLabels" TargetType="Label">
+            <Setter Property="FontSize" Value="60"/>
+            <Setter Property="Foreground" Value="Red"/>
+            <Setter Property="Background" Value="Black"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="FontFamily" Value="pack://application:,,,/Assests/Fonts/#Seven Segment"/>
+            <Setter Property="Template">
+                <Setter.Value >
+                    <ControlTemplate TargetType="Label">
+                        <Border Background="{TemplateBinding Background}" BorderBrush="#5555" BorderThickness="5">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+                        </Border>
+
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+
+
+        </Style>
+        
+     
+    </Window.Resources>
     <Grid x:Name="Kontener" VerticalAlignment="Center" HorizontalAlignment="Center" Background="Black">
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>
@@ -20,33 +45,29 @@
             <ColumnDefinition Width="1.5*"/>
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
-        <Label x:Name="FL1" FontFamily="pack://application:,,,/Assests/Fonts/#Seven Segment" Background="Black" Foreground="Red" Grid.Column="0" Grid.Row="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="60">0</Label>
-        <Label x:Name="TimeLabel" FontFamily="pack://application:,,,/Assests/Fonts/#Seven Segment" Background="Black" Foreground="Red" Grid.Column="2" Grid.Row="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="60">0</Label>
-        <Button x:Name="Reset"  Click="Reset_Click" Content="Reset" Grid.Column="1" Grid.Row="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="40" FontWeight="Heavy" Background="#333333"></Button>
-        <Grid x:Name="Board" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" Height="600" Width="600">
+        
+            <Label x:Name="FlagLabel" Grid.Column="0" Grid.Row="0" Style="{StaticResource StatsLabels}">0</Label>
+            <Label x:Name="TimeLabel" Grid.Column="2" Grid.Row="0" Style="{StaticResource StatsLabels}">0</Label>
+            <Button x:Name="Reset"  Click="Reset_Click" Content="Reset" Grid.Column="1" Grid.Row="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="40" FontWeight="Heavy" Style="{DynamicResource ResetButton}"></Button>
+           
+            <Grid x:Name="Board" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" Height="600" Width="600">
+
+            </Grid>
+            <Label x:Name="LoseLabel1" Style="{StaticResource LoseLabel}" Visibility="Hidden"></Label>
+        
+            <Grid Visibility="Hidden" x:Name="WinLabels" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" Background="White" Height="250" Width="350">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
             
-            
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
 
 
-
-
-        </Grid>
-        <Label x:Name="LoseLabel1" Style="{StaticResource LoseLabel}" Visibility="Hidden"></Label>
-        <Grid Visibility="Hidden" x:Name="WinLabels" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" Background="White" Height="250" Width="350">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="1*"/>
-                <RowDefinition Height="1*"/>
-
-
-
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1*"></ColumnDefinition>
-            </Grid.ColumnDefinitions>
-
-
-            <Label Grid.Row="0" Grid.Column="0" Content="Wygrana!!" FontSize="70" Foreground="Green" FontWeight="Heavy" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
-            <Label x:Name="ScoreLabel" Grid.Row="1" Grid.Column="0" Content="Wynik:" FontSize="35" Foreground="Black" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-        </Grid>
+                <Label Grid.Row="0" Grid.Column="0" Content="Wygrana!!" FontSize="70" Foreground="Green" FontWeight="Heavy" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
+                <Label x:Name="ScoreLabel" Grid.Row="1" Grid.Column="0" Content="Wynik:" FontSize="35" Foreground="Black" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            </Grid>
         </Grid>
 </Window>
